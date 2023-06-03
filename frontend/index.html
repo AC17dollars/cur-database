@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <title>cur-Database</title>
+</head>
+
+<body>
+    <h1>cur-Database</h1>
+    <h3>ac17dollars</h3>
+    <hr id="top-hr">
+    <div class="container">
+        <div class="input_area">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" title="Name" maxlength="30" required>
+
+                <label for="roll">Roll Number:</label>
+                <input type="text" id="roll" name="roll" pattern="[A-Za-z]{3}\d{3}[A-Za-z]{3}\d{3}"
+                    title="Format: ABC123XYZ456" placeholder="ABC123XYZ456" maxlength="12" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" title="Phone" maxlength="10" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" title="Date of Birth" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" maxlength="20" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+        <div class="display_area">
+            <div id="sortOptionsContainer">
+                <label for="sortOption">Sort By:</label>
+                <button id="addSortOptionButton" class="add-btn" onclick="addSortOption()">Add Sorting</button>
+
+
+                <div class="selectContainer" id="selectContainer" style="display: none;">
+
+                    <select id="sortOption" >
+                        <option value="" disabled selected>Select one</option>
+                        <option value="name">Name</option>
+                        <option value="roll">Roll</option>
+                        <option value="phone">Phone</option>
+                        <option value="dob">Date of Birth</option>
+                        <option value="address">Address</option>
+                    </select>
+                </div>
+                <button id="removeSortOptionButton" class="rem-btn" style="display: none;" onclick="removeSortOption()">Remove Sorting</button>
+            </div>
+            <hr>
+            <button id="view-table" class="table-btn" onclick="showTable()">Show Table</button>
+            <button id="hide-table" class="table-btn" onclick="hideTable()" style="display: none;">Hide Table</button>
+            <div class="table-container" id="data-table" style="display:none;">
+                <table id="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll</th>
+                        <th>Phone</th>
+                        <th>Date of Birth</th>
+                        <th>Address</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+</body>
+
+</html>
