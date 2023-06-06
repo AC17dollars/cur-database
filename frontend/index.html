@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <title>cur-Database</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
 </head>
 
 <body>
@@ -19,7 +21,7 @@
     <hr id="top-hr">
     <div class="container">
         <div class="input_area">
-            <form>
+            <form id="details-form">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" title="Name" maxlength="30" required>
 
@@ -48,7 +50,7 @@
 
                 <div class="selectContainer" id="selectContainer" style="display: none;">
 
-                    <select id="sortOption" >
+                    <select id="sortOption">
                         <option value="" disabled selected>Select one</option>
                         <option value="name">Name</option>
                         <option value="roll">Roll</option>
@@ -57,7 +59,8 @@
                         <option value="address">Address</option>
                     </select>
                 </div>
-                <button id="removeSortOptionButton" class="rem-btn" style="display: none;" onclick="removeSortOption()">Remove Sorting</button>
+                <button id="removeSortOptionButton" class="rem-btn" style="display: none;"
+                    onclick="removeSortOption()">Remove Sorting</button>
             </div>
             <hr>
             <button id="view-table" class="table-btn" onclick="showTable()">Show Table</button>

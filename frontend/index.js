@@ -1,4 +1,4 @@
-function addSortOption(){
+function addSortOption() {
     let addButton = document.getElementById("addSortOptionButton");
     let removeButton = document.getElementById("removeSortOptionButton");
     let sortContainer = document.getElementById("selectContainer");
@@ -14,7 +14,7 @@ function addSortOption(){
 
 }
 
-function removeSortOption(){
+function removeSortOption() {
     let addButton = document.getElementById("addSortOptionButton");
     let removeButton = document.getElementById("removeSortOptionButton");
     let sortContainer = document.getElementById("selectContainer");
@@ -28,7 +28,7 @@ function removeSortOption(){
 
 }
 
-function showTable(){
+function showTable() {
     let tableDiv = document.getElementById("data-table");
     let viewTableBtn = document.getElementById("view-table");
     let hideTableBtn = document.getElementById("hide-table");
@@ -41,7 +41,7 @@ function showTable(){
 
 }
 
-function hideTable(){
+function hideTable() {
     let tableDiv = document.getElementById("data-table");
     let viewTableBtn = document.getElementById("view-table");
     let hideTableBtn = document.getElementById("hide-table");
@@ -53,23 +53,47 @@ function hideTable(){
 
 }
 
-async function updateTable(){
+async function updateTable() {
     let table = document.getElementById("table");
 
-    while(table.childElementCount >1){
+    while (table.childElementCount > 1) {
         table.removeChild(table.lastChild);
     }
 
     let result = await fetch("/api/table"); //fetch some data
     let rows = await result.json();
-    rows.forEach( element => {
+    rows.forEach(element => {
         let tr = document.createElement("tr");
-        Object.values(element).forEach( column => {
+        Object.values(element).forEach(column => {
             let td = document.createElement("td");
             td.innerText = column;
             tr.appendChild(td);
         })
         table.appendChild(tr);
     })
-    
 }
+
+async function insertAPI(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+
+    e.target.reset();
+    try {
+        await fetch("/insert", {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
+        })
+    } catch (err) {
+        console.error("Error on fetch request");
+    }
+    updateTable();
+}
+
+const form = document.getElementById("details-form");
+form.addEventListener('submit', (e) => { insertAPI(e) })
