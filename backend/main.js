@@ -8,7 +8,14 @@ app.use(express.json());
 app.use(express.static('../frontend'));
 
 
-let client = new pg.Client(process.env.DB_URI);
+let client = new pg.Client({
+    host: process.env.PG_HOST,
+    port: process.env.PG_PORT,
+    user: process.env.PG_USER,
+    password: process.env.PG_PASSWORD,
+    database: process.env.PG_DATABASE,
+    ssl: true,
+  });
 client.connect((err) => {
     if (err) {
         console.error(err);
