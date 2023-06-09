@@ -50,7 +50,7 @@
 
                 <div class="selectContainer" id="selectContainer" style="display: none;">
 
-                    <select id="sortOption">
+                    <select id="sortOption" onchange="sortTable()">
                         <option value="" disabled selected>Select one</option>
                         <option value="name">Name</option>
                         <option value="roll">Roll</option>
@@ -67,7 +67,7 @@
             <button id="hide-table" class="table-btn" onclick="hideTable()" style="display: none;">Hide Table</button>
             <div class="table-container" id="data-table" style="display:none;">
                 <table id="table">
-                    <tr>
+                    <tr id="tr-0">
                         <th>Name</th>
                         <th>Roll</th>
                         <th>Phone</th>
