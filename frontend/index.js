@@ -24,7 +24,7 @@ async function removeSortOption() {
     removeButton.style = "display: none";
     sortContainer.style = "display: none;";
 
-    selectMenu.selectedIndex = 2;
+    selectMenu.selectedIndex = 0;
     await fetchTable();
     updateTable();
 }
@@ -81,9 +81,11 @@ function updateTable() {
 
 function sortTable() {
     let sortValue = document.getElementById('sortOption').selectedOptions[0].value;
-    rows.sort((a, b) => {
-        return (a[sortValue] > b[sortValue]) ? 1 : -1;
-    })
+    if (!sortValue == "") {
+        rows.sort((a, b) => {
+            return (a[sortValue] > b[sortValue]) ? 1 : -1;
+        })
+    }
     updateTable();
 }
 
@@ -94,7 +96,7 @@ async function insertAPI(e) {
 
     e.target.reset();
     try {
-        await fetch("/insert", {
+        let response = await fetch("/insert", {
             method: "post",
             headers: {
                 'Accept': 'application/json',
@@ -102,11 +104,18 @@ async function insertAPI(e) {
             },
             body: JSON.stringify(Object.fromEntries(formData))
         })
+        if (!response.ok) {
+            throw "Response error."
+        }
     } catch (err) {
         console.error("Error on fetch request");
+        console.log(err);
+        if (err == "Response error.")
+            alert("Insert failed: Enter a Unique Roll or the data properly.");
     }
-    fetchTable();
-    updateTable();
+
+    await fetchTable();
+    sortTable();
 }
 
 const form = document.getElementById("details-form");

@@ -15,7 +15,8 @@ let client = new pg.Client({
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DATABASE,
     ssl: true,
-  });
+});
+
 client.connect((err) => {
     if (err) {
         console.error(err);
@@ -44,12 +45,13 @@ app.get("/favicon.ico", (req, res) => {
 })
 
 app.post("/insert", async (req, res) => {
-    res.redirect("/");
     try {
         await client.query(`insert into "tbl_Student" values('${req.body.name}', '${req.body.roll}', '${req.body.phone}', '${req.body.dob}', '${req.body.address}');`);
+        res.sendStatus(200);
     }
     catch (err) {
         console.error(err);
+        res.sendStatus(500);
     }
 });
 
