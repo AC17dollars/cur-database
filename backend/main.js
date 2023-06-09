@@ -9,6 +9,7 @@ app.use(express.static('../frontend'));
 
 
 let client = new pg.Client(process.env.DB_URI);
+console.log(process.env.DB_URI);
 client.connect((err) => {
     if (err) {
         return console.error("Couldn't connect to DB Server.");
