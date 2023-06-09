@@ -55,13 +55,14 @@ function hideTable() {
 
 async function updateTable() {
     let table = document.getElementById("table");
-
+    
+    let result = await fetch("/api/table"); //fetch some data
+    let rows = await result.json();
+    
     while (table.childElementCount > 1) {
         table.removeChild(table.lastChild);
     }
 
-    let result = await fetch("/api/table"); //fetch some data
-    let rows = await result.json();
     rows.forEach(element => {
         let tr = document.createElement("tr");
         Object.values(element).forEach(column => {
