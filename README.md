@@ -2,6 +2,25 @@
 cur-database is a simple web interface for adding and viewing details to and from a postgreSQL database.
 Hosted @ [cur-database.onrender](https://cur-database.onrender.com/)
 
+### Database Schema Setup
+Create the following table for the webpage to work locally.
+```sql
+CREATE TABLE "tbl_Student" (
+	name varchar(30) NOT NULL,
+	roll varchar(15) NOT NULL, 
+	phone varchar(10),
+	dob date NOT NULL,
+	address varchar(20),
+	PRIMARY KEY(roll),
+	CONSTRAINT numeric_phone
+	CHECK (phone NOT LIKE '%[^0-9]%'));
+
+
+INSERT INTO "tbl_Student"  (name, roll, phone, dob, address)
+VALUES
+    ('John Doe', 'THA077BEI049', '1234567890', '1990-01-01', '123 Main St'),
+    ('Jane Smith', 'THA077BEI050', '9876543210', '1995-05-15', '456 Elm St');
+```
 
 ### Easy Run Script
 
@@ -14,7 +33,6 @@ curl -L  https://gist.githubusercontent.com/AC17dollars/34db4f48fcae712ec4084550
 ### Manual Run Instructions
 
 NOTE: A working postgreSQL database and its connection URL is required.
-
 
 1. Clone the project
     ```bash
