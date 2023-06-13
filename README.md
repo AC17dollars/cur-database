@@ -46,6 +46,9 @@ NOTE: A working postgreSQL database and its connection URL is required.
     ```bash
     cat > .env<<EOF
 
+    # Port to start the express server
+    PORT=3210
+
     # PostgreSQL Host address
     PG_HOST=randomname.db.elephantsql.com
 
