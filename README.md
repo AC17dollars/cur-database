@@ -2,10 +2,19 @@
 cur-database is a simple web interface for adding and viewing details to and from a postgreSQL database.
 Hosted @ [cur-database.onrender](https://cur-database.onrender.com/)
 
-### Webpage Preview:
-![image](https://github.com/AC17dollars/cur-database/assets/82364981/1e4474fa-db90-4bd3-98e0-05f85ef52ce0)
+
+### Easy Run Script
+
+Run the following command from a directory.
+
+```bash
+curl -L  https://gist.githubusercontent.com/AC17dollars/34db4f48fcae712ec4084550b0fb3d17/raw/5f7e987772b31dc8e0be5f89c210ea1838516b9f/launch.sh -o launch.sh; chmod +x launch.sh; ./launch.sh;
+```
 
 ### Run Instructions
+
+NOTE: A working postgreSQL database and its connection URL is required.
+
 
 1. Clone the project
     ```bash
@@ -64,6 +73,7 @@ Hosted @ [cur-database.onrender](https://cur-database.onrender.com/)
     ```bash
     npm run start
     ```
-    
 
+### Webpage Preview:
+![image](https://github.com/AC17dollars/cur-database/assets/82364981/1e4474fa-db90-4bd3-98e0-05f85ef52ce0)
     
