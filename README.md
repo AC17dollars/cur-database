@@ -27,7 +27,7 @@ VALUES
 Run the following command from a directory.
 
 ```bash
-curl -L  https://gist.githubusercontent.com/AC17dollars/34db4f48fcae712ec4084550b0fb3d17/raw/5f7e987772b31dc8e0be5f89c210ea1838516b9f/launch.sh -o launch.sh; chmod +x launch.sh; ./launch.sh;
+curl -L https://gist.githubusercontent.com/AC17dollars/34db4f48fcae712ec4084550b0fb3d17/raw/862d262f41ad1f5cefa72e46fa71ce5e17f4cdfd/launch.sh -o launch.sh; chmod +x launch.sh; ./launch.sh;
 ```
 
 ### Manual Run Instructions
