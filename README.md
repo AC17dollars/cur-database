@@ -11,7 +11,7 @@ Run the following command from a directory.
 curl -L  https://gist.githubusercontent.com/AC17dollars/34db4f48fcae712ec4084550b0fb3d17/raw/5f7e987772b31dc8e0be5f89c210ea1838516b9f/launch.sh -o launch.sh; chmod +x launch.sh; ./launch.sh;
 ```
 
-### Run Instructions
+### Manual Run Instructions
 
 NOTE: A working postgreSQL database and its connection URL is required.
 
